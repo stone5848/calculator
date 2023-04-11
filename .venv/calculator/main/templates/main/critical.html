@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function send() {
+            document.getElementById("contents").submit();
+        }
+        </script>
+</head>
+<body>
+    <h1>크리</h1>
+    <form id="contents" name="contents" method="post" action="{% url 'critical' %}">
+        {% csrf_token %}
+        <h4>변경 전</h4>
+        크리 확률<input name="bcri_per" type="text">
+        크리 피해<input name="bcri_dam" type="text">
+        <br/>
+        <h4>변경 후</h4>
+        크리 확률<input name="acri_per" type="text">
+        크리 피해<input name="acri_dam" type="text">
+        <button type="button" onclick="send();">계산</button>
+    </form>
+    {{data}}<br/>
+    <!--{{cri_per}}<br/>
+    {{cri_dam}}<br/>-->
+    {{percent}}
+</body>
+</html>
